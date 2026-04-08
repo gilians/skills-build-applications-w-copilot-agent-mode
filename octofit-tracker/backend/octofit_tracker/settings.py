@@ -25,7 +25,12 @@ SECRET_KEY = 'django-insecure-ygv9z-v5rw3t+aa!@w1%rh8&ug^6pbj5k%0m^@nf7za7tw!3wn
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+
+# Octofit-tracker: Set ALLOWED_HOSTS for local and Codespace environments
+import os
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+if os.environ.get('CODESPACE_NAME'):
+    ALLOWED_HOSTS.append(f"{os.environ.get('CODESPACE_NAME')}-8000.app.github.dev")
 
 
 # Application definition
