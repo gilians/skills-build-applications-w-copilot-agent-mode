@@ -12,7 +12,8 @@ function Teams() {
         const codespace = process.env.REACT_APP_CODESPACE_NAME || 'localhost';
         const protocol = process.env.REACT_APP_CODESPACE_NAME ? 'https' : 'http';
         const port = process.env.REACT_APP_CODESPACE_NAME ? '' : ':8000';
-        const apiUrl = `${protocol}://${codespace}${codespace === 'localhost' ? port : '-8000.app.github.dev'}/api/teams/`;
+        const apiEndpoint = '-8000.app.github.dev/api/teams';
+        const apiUrl = `${protocol}://${codespace}${codespace === 'localhost' ? port : apiEndpoint}/`;
         
         console.log('Fetching Teams from:', apiUrl);
         
